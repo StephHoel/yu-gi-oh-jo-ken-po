@@ -59,7 +59,7 @@ async function getRandomCardId() {
 }
 
 async function removeAllCardsImages() {
-  let { computerBox, player1Box } = state.playerSides
+  const { computerBox, player1Box } = state.playerSides
   
   let imgElements = computerBox.querySelectorAll('img')
   imgElements.forEach((img) => img.remove())
@@ -106,8 +106,7 @@ async function setCardsField(cardId) {
   state.fieldCards.player.style.display = 'block'
   state.fieldCards.computer.style.display = 'block'
 
-  state.fieldCards.player.style.backgroundImage = `url(${cardData[cardId].img})`
-  
+  state.fieldCards.player.style.backgroundImage = `url(${cardData[cardId].img})`  
   state.fieldCards.computer.style.backgroundImage = `url(${cardData[computerCardId].img})`
 
   let duelResults = await checkDuelResults(cardId, computerCardId)
