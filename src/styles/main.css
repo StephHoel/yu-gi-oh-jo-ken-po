@@ -58,6 +58,17 @@
   border-radius: 5px;
 }
 
+#card-image {
+  border: .1rem solid #fff;
+  border-radius: 8px;
+
+  width: 14.9rem;
+  height: 19.5rem;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .card_details {
   background-color: #fff;
   padding: 1rem;
@@ -88,9 +99,10 @@
 .card-versus__container {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
-  height: 300px;
-  margin-top: 5rem;
+  /* padding-top: 1rem; */
+  height: 500px;
+  justify-content: center;
+  align-items: center;
 }
 
 .versus-top,
@@ -118,9 +130,15 @@
 }
 
 .card-infield {
-  height: 11.2rem;
-  width: 8rem;
-  /* border: 1px solid #fff; */
+  width: 15rem;
+  height: 20rem;
+  margin: 2rem;
+  
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  border: 1px solid #fff;
+
   border-radius: 8px;
 }
 

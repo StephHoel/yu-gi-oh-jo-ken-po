@@ -58,12 +58,6 @@ async function getRandomCardId() {
   return cardData[randomIndex].id
 }
 
-async function drawSelectCard(idCard) {
-  state.cardSprites.avatar.src = cardData[idCard].img
-  state.cardSprites.name.innerText = cardData[idCard].name
-  state.cardSprites.type.innerText = `Attribute: ${cardData[idCard].type}`
-}
-
 async function removeAllCardsImages() {
   let { computerBox, player1Box } = state.playerSides
   
@@ -112,8 +106,9 @@ async function setCardsField(cardId) {
   state.fieldCards.player.style.display = 'block'
   state.fieldCards.computer.style.display = 'block'
 
-  state.fieldCards.player.src = cardData[cardId].img
-  state.fieldCards.computer.src = cardData[computerCardId].img
+  state.fieldCards.player.style.backgroundImage = `url(${cardData[cardId].img})`
+  
+  state.fieldCards.computer.style.backgroundImage = `url(${cardData[computerCardId].img})`
 
   let duelResults = await checkDuelResults(cardId, computerCardId)
 
@@ -136,11 +131,9 @@ async function createCardImage(idCard, fieldSide) {
     })
 
     cardImage.addEventListener('mouseover', () => {
-      state.cardSprites.avatar.src = cardData[idCard].img
+      state.cardSprites.avatar.style.backgroundImage = `url(${cardData[idCard].img})`
       state.cardSprites.name.innerText = cardData[idCard].name
       state.cardSprites.type.innerText = `Attribute: ${cardData[idCard].type}`
-
-      // drawSelectCard(idCard)
     })
   }
 
@@ -157,14 +150,14 @@ async function drawCards(cardNumbers, fieldSide) {
 }
 
 async function resetDuel() {
-  state.cardSprites.avatar.src = ""
+  state.cardSprites.avatar.style.backgroundImage = ""
   state.cardSprites.name.innerText = ""
   state.cardSprites.type.innerText = ""
   
   state.actions.button.style.display = "none"
 
-  state.fieldCards.player.style.display = "none"
-  state.fieldCards.computer.style.display = "none"
+  state.fieldCards.player.style.backgroundImage = ""
+  state.fieldCards.computer.style.backgroundImage = ""
 
   init()
 }
